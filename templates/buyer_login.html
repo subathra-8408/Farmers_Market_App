@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Buyer Login</title>
+    <link rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+<h1>Buyer Login</h1>
+
+<form method="POST">
+
+    <label>Email</label><br>
+    <input type="email" name="email" required><br><br>
+
+    <label>Password</label><br>
+    <input type="password" name="password" required><br><br>
+
+    <a href="/forgot_password">
+        Forgot Password?
+    </a>
+
+    <button type="submit">Login</button>
+
+</form>
+</div>
+</body>
+</html>

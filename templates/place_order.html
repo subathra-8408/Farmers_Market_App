@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Place Order</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Place Order</h1>
+
+<form method="POST">
+
+    <label><b>Product Name</b></label>
+
+    <br><br>
+
+    <input
+        type="text"
+        value="{{ product[1] }}"
+        readonly>
+
+    <br><br>
+
+    <label><b>Category</b></label>
+
+    <br><br>
+
+    <input
+        type="text"
+        value="{{ product[2] }}"
+        readonly>
+
+    <br><br>
+
+    <label><b>Available Stock</b></label>
+
+    <br><br>
+
+    <input
+        type="text"
+        value="{{ product[3] }} {{ product[6] }}"
+        readonly>
+
+    <br><br>
+
+    <label><b>Price</b></label>
+
+    <br><br>
+
+    <input
+        type="text"
+        value="₹ {{ product[4] }} / {{ product[6] }}"
+        readonly>
+
+    <br><br>
+
+    <label><b>Order Quantity</b></label>
+
+    <br><br>
+
+    <input
+        type="number"
+        name="quantity"
+        step="0.01"
+        min="0.01"
+        required>
+
+    <br>
+
+    <small>
+        Example: 2.5 kg, 3 litre, 1 dozen
+    </small>
+
+    <br><br>
+
+    <label><b>Delivery Address</b></label>
+
+    <br><br>
+
+    <textarea
+        name="address"
+        rows="4"
+        cols="40"
+        required></textarea>
+
+    <br><br>
+
+    <label><b>Payment Mode</b></label>
+
+    <br><br>
+
+    <input
+        type="radio"
+        name="payment_mode"
+        value="Cash on Delivery"
+        required>
+
+    Cash on Delivery
+
+    <br><br>
+
+    <input
+        type="radio"
+        name="payment_mode"
+        value="Online Payment">
+
+    Online Payment
+
+    <br><br>
+
+    <button type="submit">
+
+        Place Order
+
+    </button>
+
+</form>
+
+<br><br>
+
+<a href="/buyer_view_products">
+
+    <button>
+
+        Back
+
+    </button>
+
+</a>
+
+</div>
+
+</body>
+
+</html>

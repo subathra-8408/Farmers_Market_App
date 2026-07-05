@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>View Orders</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Customer Orders</h1>
+
+<table border="1" align="center" cellpadding="10">
+
+<tr>
+
+    <th>Order ID</th>
+
+    <th>Buyer Name</th>
+
+    <th>Product</th>
+
+    <th>Quantity</th>
+
+    <th>Address</th>
+
+    <th>Payment Mode</th>
+
+    <th>Price</th>
+
+    <th>Status</th>
+
+    <th>Action</th>
+
+</tr>
+
+{% for order in orders %}
+
+<tr>
+
+    <td>{{ order[0] }}</td>
+
+    <td>{{ order[3] }}</td>
+
+    <td>{{ order[2] }}</td>
+
+    <td>{{ order[4] }} {{ order[5] }}</td>
+
+    <td>{{ order[8] }}</td>
+
+    <td>{{ order[9] }}</td>
+
+    <td>₹ {{ order[6] }}</td>
+
+    <td>
+
+        {% if order[7]=="Pending" %}
+
+            🟡 Pending
+
+        {% elif order[7]=="Accepted" %}
+
+            🟢 Accepted
+
+        {% elif order[7]=="Packed" %}
+
+            📦 Packed
+
+        {% elif order[7]=="Out for Delivery" %}
+
+            🚚 Out for Delivery
+
+        {% elif order[7]=="Delivered" %}
+
+            ✅ Delivered
+
+        {% else %}
+
+            ❌ Rejected
+
+        {% endif %}
+
+    </td>
+
+    <td>
+
+        {% if order[7]!="Delivered" and order[7]!="Rejected" %}
+
+        <a href="/next_status/{{ order[0] }}">
+
+            <button>
+
+                Next Status
+
+            </button>
+
+        </a>
+
+        <a href="/reject_order/{{ order[0] }}">
+
+            <button>
+
+                Reject
+
+            </button>
+
+        </a>
+
+        {% else %}
+
+        <b>Completed</b>
+
+        {% endif %}
+
+    </td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+<br><br>
+
+<a href="/farmer_dashboard">
+
+<button>
+
+Back
+
+</button>
+
+</a>
+
+</div>
+
+</body>
+
+</html>

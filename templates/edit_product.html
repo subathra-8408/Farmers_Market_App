@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Edit Product</title>
+    <link rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+<div class="container">
+<h1>Edit Product</h1>
+
+<form method="POST" enctype="multipart/form-data">
+
+    Product Name:<br>
+    <input type="text"
+           name="product_name"
+           value="{{ product[1] }}"
+           required>
+    <br><br>
+
+    Category:<br>
+    <input type="text"
+           name="category"
+           value="{{ product[2] }}"
+           required>
+    <br><br>
+
+    Stock:<br>
+    <input type="number"
+           step="0.01"
+           name="stock"
+           value="{{ product[3] }}"
+           required>
+    <br><br>
+
+    Unit:<br>
+    <input type="text"
+           name="unit"
+           value="{{ product[6] }}"
+           required>
+    <br><br>
+
+    Price:<br>
+    <input type="number"
+           step="0.01"
+           name="price"
+           value="{{ product[4] }}"
+           required>
+    <br><br>
+
+    Current Image:<br>
+    <img src="{{ url_for('static', filename='uploads/' + product[5]) }}"width="120">
+    <br><br>
+
+    New Image:<br>
+    <input type="file" name="image">
+    <br><br>
+
+    <button type="submit">
+        Update Product
+    </button>
+
+</form>
+
+<br><br>
+
+<a href="/view_products">
+    <button>Back</button>
+</a>
+</div>
+</body>
+</html>

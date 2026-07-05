@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Admin Dashboard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>👨‍💼 Admin Dashboard</h1>
+
+<div class="dashboard">
+
+    <a href="/admin_view_products">
+        <div class="card">
+            <h2>📦</h2>
+            <p>View Products</p>
+        </div>
+    </a>
+
+    <a href="/admin_view_orders">
+        <div class="card">
+            <h2>🛒</h2>
+            <p>View Orders</p>
+        </div>
+    </a>
+
+    <a href="/view_buyers">
+        <div class="card">
+            <h2>👤</h2>
+            <p>View Buyers</p>
+        </div>
+    </a>
+
+    <a href="/view_farmers">
+        <div class="card">
+            <h2>🌾</h2>
+            <p>View Farmers</p>
+        </div>
+    </a>
+
+    <a href="/logout">
+        <div class="card">
+            <h2>🚪</h2>
+            <p>Logout</p>
+        </div>
+    </a>
+
+</div>
+
+</div>
+
+</body>
+
+</html>

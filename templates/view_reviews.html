@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Product Reviews</title>
+    <link rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+<div class="container">
+<h1>Customer Reviews</h1>
+
+<table border="1" cellpadding="10">
+
+<tr>
+
+    <th>Product</th>
+    <th>Buyer</th>
+    <th>Rating</th>
+    <th>Average Rating</th>
+    <th>Total Reviews</th>
+    <th>Review</th>
+    <th>Date</th>
+
+</tr>
+
+{% for review in reviews %}
+
+<tr>
+
+    <td>
+        <a href="/product_reviews/{{ review[0] }}">
+            {{ review[0] }}
+        </a>
+    </td>
+
+    <td>{{ review[1] }}</td>
+
+    <td>
+
+        {% if review[2] == 5 %}
+            ⭐⭐⭐⭐⭐
+        {% elif review[2] == 4 %}
+            ⭐⭐⭐⭐
+        {% elif review[2] == 3 %}
+            ⭐⭐⭐
+        {% elif review[2] == 2 %}
+            ⭐⭐
+        {% else %}
+            ⭐
+        {% endif %}
+
+    </td>
+
+    <td>⭐ {{ review[5] }}/5</td>
+
+    <td>{{ review[6] }}</td>
+
+    <td>{{ review[3] }}</td>
+
+    <td>{{ review[4] }}</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+<br><br>
+
+<a href="/product_ratings">
+
+<button>
+
+Average Ratings
+
+</button>
+
+</a>
+
+<br><br>
+
+<a href="/farmer_dashboard">
+
+<button>
+
+Back
+
+</button>
+
+</a>
+</div>
+</body>
+
+</html>

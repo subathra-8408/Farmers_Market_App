@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Registered Buyers</title>
+    <link rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+<div class="container">
+<h1>Registered Buyers</h1>
+
+<table border="1" align="center" cellpadding="10">
+
+<tr>
+
+    <th>ID</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Mobile</th>
+    <th>Action</th>
+
+</tr>
+
+{% for buyer in buyers %}
+
+<tr>
+
+    <td>{{ buyer[0] }}</td>
+
+    <td>{{ buyer[1] }}</td>
+
+    <td>{{ buyer[2] }}</td>
+
+    <td>{{ buyer[3] }}</td>
+
+    <td>
+
+        <a href="/delete_buyer/{{ buyer[0] }}">
+            <button>Delete</button>
+        </a>
+
+    </td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+<br><br>
+
+<a href="/admin_dashboard">
+    <button>Back</button>
+</a>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>All Farmers</title>
+    <link rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+<div class="container">
+<h1>Registered Farmers</h1>
+
+<table border="1" align="center" cellpadding="10">
+
+<tr>
+
+    <th>ID</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Mobile</th>
+    <th>Action</th>
+
+</tr>
+
+{% for farmer in farmers %}
+
+<tr>
+
+    <td>{{ farmer[0] }}</td>
+    <td>{{ farmer[1] }}</td>
+    <td>{{ farmer[2] }}</td>
+    <td>{{ farmer[3] }}</td>
+
+    <td>
+
+        <a href="/delete_farmer/{{ farmer[0] }}">
+            <button>Delete</button>
+        </a>
+
+    </td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+<br><br>
+
+<a href="/admin_dashboard">
+    <button>Back</button>
+</a>
+</div>
+</body>
+</html>

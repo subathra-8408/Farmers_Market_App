@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Buyer Dashboard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🛍 Buyer Dashboard</h1>
+
+<div class="dashboard">
+
+    <a href="/buyer_view_products">
+        <div class="card">
+            <h2>🛒</h2>
+            <p>Shop Products</p>
+        </div>
+    </a>
+
+    <a href="/view_cart">
+        <div class="card">
+            <h2>🛍</h2>
+            <p>My Cart</p>
+        </div>
+    </a>
+
+    <a href="/wishlist">
+        <div class="card">
+            <h2>❤️</h2>
+            <p>Wishlist</p>
+        </div>
+    </a>
+
+    <a href="/my_orders">
+        <div class="card">
+            <h2>📦</h2>
+            <p>My Orders</p>
+        </div>
+    </a>
+
+    <a href="/logout">
+        <div class="card">
+            <h2>🚪</h2>
+            <p>Logout</p>
+        </div>
+    </a>
+
+</div>
+
+</div>
+
+</body>
+
+</html>

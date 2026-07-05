@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>Write Review</title>
+
+<link rel="stylesheet"
+    href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+<div class="container">
+<h1>Write Product Review</h1>
+
+<h3>{{ order[1] }}</h3>
+
+<form method="POST">
+
+Rating
+
+<br><br>
+
+<select name="rating">
+
+<option value="5">⭐⭐⭐⭐⭐</option>
+
+<option value="4">⭐⭐⭐⭐</option>
+
+<option value="3">⭐⭐⭐</option>
+
+<option value="2">⭐⭐</option>
+
+<option value="1">⭐</option>
+
+</select>
+
+<br><br>
+
+Review
+
+<br><br>
+
+<textarea
+
+name="review"
+
+rows="6"
+
+cols="40"
+
+required>
+
+</textarea>
+
+<br><br>
+
+<button>
+
+Submit Review
+
+</button>
+
+</form>
+
+<br>
+
+<a href="/my_orders">
+
+<button>
+
+Back
+
+</button>
+
+</a>
+</div>
+</body>
+
+</html>

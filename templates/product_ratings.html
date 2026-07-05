@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Product Ratings</title>
+    <link rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+<div class="container">
+<h1>⭐ Product Ratings ⭐</h1>
+
+<table border="1" cellpadding="10">
+
+<tr>
+
+    <th>Rank</th>
+
+    <th>Product</th>
+
+    <th>Average Rating</th>
+
+    <th>Total Reviews</th>
+
+</tr>
+
+{% for rating in ratings %}
+
+<tr>
+
+    <td>
+
+        {% if loop.first %}
+
+            🏆 Top Rated
+
+        {% else %}
+
+            {{ loop.index }}
+
+        {% endif %}
+
+    </td>
+
+    <td>
+
+        {{ rating[0] }}
+
+    </td>
+
+    <td>
+
+        ⭐ {{ rating[1] }}/5
+
+    </td>
+
+    <td>
+
+        {{ rating[2] }}
+
+    </td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+<br><br>
+
+<a href="/view_reviews">
+    <button>Back</button>
+</a>
+</div>
+</body>
+</html>

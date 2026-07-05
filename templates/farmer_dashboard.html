@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Farmer Dashboard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🌿 Farmer Dashboard</h1>
+
+<div class="dashboard">
+
+    <a href="/add_product">
+        <div class="card">
+            <h2>➕</h2>
+            <p>Add Product</p>
+        </div>
+    </a>
+
+    <a href="/view_products">
+        <div class="card">
+            <h2>📦</h2>
+            <p>View Products</p>
+        </div>
+    </a>
+
+    <a href="/view_orders">
+        <div class="card">
+            <h2>🛒</h2>
+            <p>Customer Orders</p>
+        </div>
+    </a>
+
+    <a href="/view_reviews">
+        <div class="card">
+            <h2>⭐</h2>
+            <p>Customer Reviews</p>
+        </div>
+    </a>
+
+    <a href="/sales_report">
+        <div class="card">
+            <h2>💰</h2>
+            <p>Sales Report</p>
+        </div>
+    </a>
+
+    <a href="/low_stock">
+        <div class="card">
+            <h2>⚠</h2>
+            <p>Low Stock</p>
+        </div>
+    </a>
+
+    <a href="/logout">
+        <div class="card">
+            <h2>🚪</h2>
+            <p>Logout</p>
+        </div>
+    </a>
+
+</div>
+
+</div>
+
+</body>
+</html>

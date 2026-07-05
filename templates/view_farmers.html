@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Farmers</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Farmers</h1>
+
+<table>
+
+<tr>
+
+<th>ID</th>
+
+<th>Name</th>
+
+<th>Email</th>
+
+<th>Mobile</th>
+
+</tr>
+
+{% for farmer in farmers %}
+
+<tr>
+
+<td>{{ farmer[0] }}</td>
+
+<td>{{ farmer[1] }}</td>
+
+<td>{{ farmer[2] }}</td>
+
+<td>{{ farmer[4] }}</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+<br>
+
+<a href="/admin_dashboard">
+
+<button>Back</button>
+
+</a>
+
+</div>
+
+</body>
+
+</html>

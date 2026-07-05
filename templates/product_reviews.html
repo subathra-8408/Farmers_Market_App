@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Product Reviews</title>
+    <link rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+<div class="container">
+<h1>{{ product_name }} Reviews</h1>
+
+<table border="1" cellpadding="10">
+
+<tr>
+    <th>Buyer</th>
+    <th>Rating</th>
+    <th>Review</th>
+    <th>Date</th>
+</tr>
+
+{% for review in reviews %}
+
+<tr>
+
+<td>{{ review[0] }}</td>
+
+<td>
+
+{% if review[1] == 5 %}
+⭐⭐⭐⭐⭐
+
+{% elif review[1] == 4 %}
+⭐⭐⭐⭐
+
+{% elif review[1] == 3 %}
+⭐⭐⭐
+
+{% elif review[1] == 2 %}
+⭐⭐
+
+{% else %}
+⭐
+
+{% endif %}
+
+</td>
+
+<td>{{ review[2] }}</td>
+
+<td>{{ review[3] }}</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+<br><br>
+
+<a href="/view_reviews">
+<button>Back</button>
+</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Invoice</title>
+    <link rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+<div class="container">
+    <h1>🌾 FARMER'S MARKET 🌾</h1>
+
+    <h3>Fresh Farm Products</h3>
+
+    <p>Email : farmersmarket@gmail.com</p>
+
+    <p>Phone : +91 9876543210</p>
+
+    <hr width="600">
+
+    <table cellpadding="10" align="center">
+
+        <tr>
+            <td><b>Invoice No</b></td>
+            <td>{{ invoice[0] }}</td>
+        </tr>
+
+        <tr>
+            <td><b>Buyer Name</b></td>
+            <td>{{ invoice[2] }}</td>
+        </tr>
+
+        <tr>
+            <td><b>Product</b></td>
+            <td>{{ invoice[1] }}</td>
+        </tr>
+
+        <tr>
+            <td><b>Quantity</b></td>
+            <td>{{ invoice[3] }} {{ invoice[4] }}</td>
+        </tr>
+
+        <tr>
+            <td><b>Price</b></td>
+            <td>₹ {{ invoice[5] }}</td>
+        </tr>
+
+        <tr>
+            <td><b>Total Amount</b></td>
+            <td><b>₹ {{ total }}</b></td>
+        </tr>
+
+        <tr>
+            <td><b>Payment Mode</b></td>
+            <td>{{ invoice[8] }}</td>
+        </tr>
+
+        <tr>
+            <td><b>Delivery Address</b></td>
+            <td>{{ invoice[7] }}</td>
+        </tr>
+
+        <tr>
+            <td><b>Order Status</b></td>
+            <td>{{ invoice[6] }}</td>
+        </tr>
+
+        <tr>
+            <td><b>Order Date</b></td>
+            <td>{{ invoice[9] }}</td>
+        </tr>
+
+    </table>
+
+    <hr width="600">
+
+    <h2>Thank You For Shopping! 😊</h2>
+
+    <br>
+
+    <button onclick="window.print()">
+        Print Invoice
+    </button>
+
+    <br><br>
+
+    <a href="/my_orders">
+        <button>Back</button>
+    </a>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Sales Report</title>
+
+    <link rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+<div class="container">
+
+<h1>Sales Report</h1>
+
+<table border="1" align="center" cellpadding="10">
+
+<tr>
+
+    <th>Product</th>
+    <th>Sold Quantity</th>
+    <th>Unit</th>
+    <th>Price</th>
+    <th>Total Revenue</th>
+
+</tr>
+
+{% for row in report %}
+
+<tr>
+
+    <td>{{ row[0] }}</td>
+
+    <td>{{ row[1] }}</td>
+
+    <td>{{ row[2] }}</td>
+
+    <td>₹ {{ row[3] }}</td>
+
+    <td>₹ {{ row[4] }}</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+<br><br>
+
+<h2>Overall Summary</h2>
+
+<table border="1" align="center" cellpadding="10">
+
+<tr>
+
+    <th>Total Quantity Sold</th>
+    <th>Total Revenue</th>
+
+</tr>
+
+<tr>
+
+    <td>{{ summary[0] }}</td>
+
+    <td>₹ {{ summary[1] }}</td>
+
+</tr>
+
+</table>
+
+<br><br>
+
+<a href="/farmer_dashboard">
+
+<button>Back</button>
+
+</a>
+</div>
+</body>
+
+</html>

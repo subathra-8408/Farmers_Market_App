@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Buyers</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Buyers</h1>
+
+<table>
+
+<tr>
+
+<th>ID</th>
+
+<th>Name</th>
+
+<th>Email</th>
+
+<th>Mobile</th>
+
+</tr>
+
+{% for buyer in buyers %}
+
+<tr>
+
+<td>{{ buyer[0] }}</td>
+
+<td>{{ buyer[1] }}</td>
+
+<td>{{ buyer[2] }}</td>
+
+<td>{{ buyer[3] }}</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+<br>
+
+<a href="/admin_dashboard">
+
+<button>Back</button>
+
+</a>
+
+</div>
+
+</body>
+
+</html>

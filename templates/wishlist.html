@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My Wishlist</title>
+    <link rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>❤️ My Wishlist</h1>
+
+<table border="1" cellpadding="10">
+
+<tr>
+
+<th>Image</th>
+
+<th>Product</th>
+
+<th>Price</th>
+
+<th>Action</th>
+
+</tr>
+
+{% for item in wishlist %}
+
+<tr>
+
+<td>
+
+<img src="{{ url_for('static', filename='uploads/' + item[5]) }}" width="100">
+
+</td>
+
+<td>
+
+{{ item[3] }}
+
+</td>
+
+<td>
+
+₹ {{ item[4] }}
+
+</td>
+
+<td>
+
+<form action="/move_to_cart/{{ item[0] }}" method="POST">
+
+Quantity :
+
+<input
+type="number"
+name="quantity"
+value="1"
+min="1"
+required
+style="width:60px;">
+
+<br><br>
+
+<button type="submit">
+
+🛒 Move to Cart
+
+</button>
+
+</form>
+
+<br>
+
+<a href="/remove_wishlist/{{ item[0] }}">
+
+<button>
+
+🗑 Remove
+
+</button>
+
+</a>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+<br><br>
+
+<a href="/buyer_dashboard">
+
+<button>
+
+Back
+
+</button>
+
+</a>
+</div>
+</body>
+
+</html>

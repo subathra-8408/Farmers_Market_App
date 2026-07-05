@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>My Orders</title>
+
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>My Orders</h1>
+
+<table border="1" cellpadding="10">
+
+<tr>
+
+<th>Product</th>
+
+<th>Quantity</th>
+
+<th>Price</th>
+
+<th>Address</th>
+
+<th>Payment</th>
+
+<th>Status</th>
+
+<th>Order Date</th>
+
+<th>Invoice</th>
+
+<th>Review</th>
+
+</tr>
+
+{% for order in orders %}
+
+<tr>
+
+<td>{{ order[2] }}</td>
+
+<td>{{ order[4] }} {{ order[5] }}</td>
+
+<td>₹ {{ order[6] }}</td>
+
+<td>{{ order[8] }}</td>
+
+<td>{{ order[9] }}</td>
+
+<td>
+
+{% if order[7]=="Pending" %}
+
+🟡 Pending
+
+{% elif order[7]=="Accepted" %}
+
+🟢 Accepted
+
+{% elif order[7]=="Packed" %}
+
+📦 Packed
+
+{% elif order[7]=="Out for Delivery" %}
+
+🚚 Out for Delivery
+
+{% elif order[7]=="Delivered" %}
+
+✅ Delivered
+
+{% else %}
+
+❌ Rejected
+
+{% endif %}
+
+</td>
+
+<td>{{ order[10] }}</td>
+
+<td>
+
+{% if order[7]=="Delivered" %}
+
+<a href="/invoice/{{ order[0] }}">
+
+<button>
+
+View Invoice
+
+</button>
+
+</a>
+
+{% else %}
+
+-
+
+{% endif %}
+
+</td>
+
+<td>
+
+{% if order[7]=="Delivered" %}
+
+    {% if order|length > 11 and order[11] %}
+
+        <button disabled>
+
+            Reviewed ✅
+
+        </button>
+
+    {% else %}
+
+        <a href="/add_review/{{ order[0] }}">
+
+        <button>
+
+            Write Review
+
+        </button>
+
+        </a>
+
+    {% endif %}
+
+{% else %}
+
+-
+
+{% endif %}
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+<br><br>
+
+<a href="/buyer_dashboard">
+
+<button>
+
+Back
+
+</button>
+
+</a>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Available Products</title>
+    <link rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+<h1>Available Products</h1>
+
+<form method="GET" action="/buyer_view_products">
+
+    <input type="text"
+           name="search"
+           placeholder="Search Product">
+
+    <button type="submit">Search</button>
+
+</form>
+
+<br><br>
+
+<table border="1" align="center" cellpadding="10">
+
+    <tr>
+        <th>Image</th>
+        <th>Product Name</th>
+        <th>Category</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>order</th>
+        <th>Action</th>
+        <th>wishlist</th>
+    </tr>
+
+    {% for product in products %}
+    <tr>
+
+        <td>
+            {% if product[5] %}
+                <img src="{{ url_for('static', filename='uploads/' + product[5]) }}"
+                     width="120"
+                     height="120">
+            {% else %}
+                No Image
+            {% endif %}
+        </td>
+
+        <td>{{ product[1] }}</td>
+
+        <td>{{ product[2] }}</td>
+
+        <td>{{ product[3] }} {{ product[6] }} Available</td>
+
+        <td>₹ {{ product[4] }} / {{ product[6] }}</td>
+
+        <td>
+            <a href="{{ url_for('place_order', product_id=product[0]) }}">
+                <button type="button">Place Order</button>
+            </a>
+        </td>
+
+        <td>
+            <form action="/add_to_cart/{{ product[0] }}" method="POST">
+            <input
+                type="number"
+                name="quantity"
+                step="0.01"
+                min="0.01"
+                value="1"
+                required >
+            <br><br>
+            <button type="submit">
+                Add to Cart
+            </button>
+            </form>
+        </td>
+
+        <td>
+            <a href="/add_to_wishlist/{{ product[0] }}">
+
+                <button>❤️ Wishlist</button>
+
+            </a>
+        </td>
+        
+    </tr>
+    {% endfor %}
+
+</table>
+</div>
+</body>
+</html>
