@@ -15,7 +15,7 @@ db = mysql.connector.connect(
     database="farmers_market"
 )
 
-cursor = db.cursor()
+cursor = db.cursor(buffered=True)
 
 app = Flask(__name__)
 
